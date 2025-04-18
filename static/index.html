@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document QA Assistant</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-robot"></i> Document QA Assistant</h1>
+            <p class="subtitle">Upload your documents and ask questions about their content</p>
+        </header>
+        
+        <div class="upload-section">
+            <div class="section-header">
+                <h2><i class="fas fa-upload"></i> Upload Documents</h2>
+                <p class="section-description">Supported formats: PDF, DOCX, TXT, CSV</p>
+            </div>
+            <div class="dropzone" id="dropzone">
+                <div class="dropzone-content">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Drag and drop files here or click to select</p>
+                    <p class="dropzone-hint">Maximum file size: 10MB per file</p>
+                </div>
+                <input type="file" id="fileInput" multiple accept=".pdf,.docx,.txt,.csv" style="display: none;">
+            </div>
+            <div id="fileList" class="file-list"></div>
+        </div>
+
+        <div class="query-section">
+            <div class="section-header">
+                <h2><i class="fas fa-question-circle"></i> Ask a Question</h2>
+                <p class="section-description">Enter your question about the uploaded documents</p>
+            </div>
+            <div class="query-container">
+                <textarea id="queryInput" placeholder="Type your question here..."></textarea>
+                <div class="query-controls">
+                    <div class="mode-selector">
+                        <label for="queryMode">Response Mode:</label>
+                        <select id="queryMode">
+                            <option value="simple">Simple Answer</option>
+                            <option value="advanced">Detailed Answer with Sources</option>
+                        </select>
+                    </div>
+                    <button id="queryButton" class="primary-button">
+                        <i class="fas fa-paper-plane"></i> Ask Question
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="results-section">
+            <div class="section-header">
+                <h2><i class="fas fa-lightbulb"></i> Results</h2>
+            </div>
+            <div class="results-container">
+                <div id="answer" class="answer-box">
+                    <div class="loading-spinner" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Processing your question...</p>
+                    </div>
+                    <div class="answer-content"></div>
+                </div>
+                <div id="sources" class="sources-box"></div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Document QA Assistant &copy; 2024</p>
+        </footer>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html> 
